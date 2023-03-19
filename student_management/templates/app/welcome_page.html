@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block title %}Welcome Page{% endblock title %}
+
+{% block content %}
+<center>
+  <h1>Welcome, <span style="color:red">{{ request.user.email}}!</span></h1>
+  <p>You have successfully logged in.</p><br><br>
+  <a href="{% url 'dashboard' %}"><button type="button" class="btn btn-success col-4">Continue as {{request.user.name}}({{request.user.user_role}})</button></a>
+</center>
+{% endblock %}

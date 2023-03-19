@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %} teacher dashboard {% endblock title %}
+
+{% block content %}
+<br>
+<center><a href='{% url 'upload_images' %}'><button type='button' class='btn btn-warning col-4'>Upload Image</button></a></center>
+<h5 style="margin-left:900px">Welcome {{request.user.name}}</h5>
+<br>
+<h3>Image uploaded by {{request.user.name}}({{request.user.user_role}})</h3>
+{% for img in image %}
+<img src="{{img.image.url}}" alt="" style="width:300px;height:200px;"><br><br>
+{% endfor %}
+
+<h3>Image uploaded by students</h3>
+{% for stu in student %}
+<h2>photos of student {{stu.name}}</h2>
+<img src="{{stu.image.url}}" alt="" style="width:300;height:200px;"><br>
+<h4>Image no. {{forloop.counter}}</h4>
+{% endfor %}
+
+{% endblock content %}

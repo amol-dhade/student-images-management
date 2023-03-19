@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %} teacher dashboard {% endblock title %}
+
+{% block content %}
+
+<h3>Image uploaded by teachers</h3>
+{% for img in image %}
+{% if img.user.user_role == 'Teacher' %}
+<h3>Images Uploaded ({{img.user.name}})</h3><br>
+<img src="{{img.image.url}}" alt="" style="width:300px;height:200px;"><br>
+<h4>Image no: {{forloop.counter}}</h4>
+{% endif %}
+{% endfor %}
+
+
+<h3>Image uploaded by students</h3>
+{% for img in image %}
+{% if img.user.user_role == 'Student' %}
+<h3>Images Uploaded by ({{img.user.name}})</h3><br>
+<img src="{{img.image.url}}" alt="" style="width:300;height:200px;"><br>
+<h4>Image no: {{img.user.name}}</h4>
+{% endif %}
+{% endfor %}
+
+{% endblock content %}

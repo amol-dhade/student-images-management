@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %} student dashboard {% endblock title %}
+
+{% block content %}
+<br>
+<center><a href='{% url 'upload_images' %}'><button type='button' class='btn btn-warning col-4'>Upload Image</button></a></center>
+<h5>Welcome {{request.user.name}}</h5>
+<h3>Image Uploaded By {{request.user.name}}({{request.user.user_role}})</h3>
+<br><br>
+{% for img in image %}
+<img src="{{img.image.url}}" alt="" style="width:300;height:200px;"><br>
+ <h4>Image no.{{forloop.counter}}</h4>
+ {% endfor %}
+{% endblock content %}

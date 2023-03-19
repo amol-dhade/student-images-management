@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block title %}Teacher Form{% endblock title %}
+
+{% block content %}
+<form method='post', enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <input type='submit' value='submit'>
+</form>
+{% endblock content %}

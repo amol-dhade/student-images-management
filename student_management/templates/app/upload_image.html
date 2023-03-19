@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Upload Image{% endblock title %}
+
+{% block content %}
+<div>
+    <center><h2>Upload Image</h2></center>
+    <form method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type='submit' value='upload' class='btn btn-primary'>
+    </form>
+</div>
+{% endblock content %}
